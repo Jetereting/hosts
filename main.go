@@ -1,28 +1,17 @@
 package main
 
 import (
-	"github.com/PuerkitoBio/goquery"
-	"log"
 	"runtime"
 	"fmt"
 	"os"
 	"io/ioutil"
+	"github.com/astaxie/beego/httplib"
 )
 
-func ExampleScrape() string{
-	result:="";
-	doc, err := goquery.NewDocument("https://github.com/racaljk/hosts/blob/master/hosts")
-	if err != nil {
-		log.Fatal(err)
-	}
-	doc.Find("td").Each(func(i int, s *goquery.Selection) {
-		result+=s.Text()+"\r\n"
-	})
-	return result
-}
 
 func main() {
-	result:=[]byte(ExampleScrape())
+	tempResult,_:=httplib.Get("https://raw.githubusercontent.com/racaljk/hosts/master/hosts").String()
+	result:=[]byte(tempResult)
 	hostsUir:="";
 	switch os := runtime.GOOS; os {
 	case "windows":
@@ -33,9 +22,12 @@ func main() {
 	osErr:=os.Chmod(hostsUir,777)
 	if osErr!=nil{
 		fmt.Println("ERROR:",osErr)
+		return
 	}
 	err := ioutil.WriteFile(hostsUir,result, 0777)
 	if err != nil {
 		fmt.Println("ERROR:",err)
+		return
 	}
+	fmt.Println("SUCCESS!!!!!!!!!!!!!!!!!!!!")
 }

@@ -8,7 +8,7 @@ su 切换到root权限<br>
 ./main 执行<br>
 若无 ERROR 则成功<br>
 ####Mac平台：
-sudo ./mac+linux
+sudo ./mac
 ##用到的开源项目
 最新 hosts： https://github.com/racaljk/hosts/blob/master/hosts
 
