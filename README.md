@@ -10,6 +10,5 @@ su 切换到root权限<br>
 ####Mac平台：
 sudo ./mac
 ##用到的开源项目
-最新 hosts： https://github.com/racaljk/hosts/blob/master/hosts
+最新 hosts： https://github.com/racaljk/hosts
 
-go下类似jsoup的goquery ：  https://github.com/PuerkitoBio/goquery
