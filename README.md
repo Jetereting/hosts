@@ -1,5 +1,5 @@
 # hosts
-go语言写的win/linux平台下的翻墙软件（通过修改hosts） 
+go语言写的win/linux／mac平台下的翻墙软件（通过修改hosts） 
 ####Windows平台：
 右击windows.exe,以管理员身份运行
 ####Linux平台：
